@@ -1,21 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
-import ProductCard from './components/productCard.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
     
-      <ProductCard  name="Laptop" price="100,000.00" image="https://picsum.photos/id/9/200/300"/>
+  <div className='w-[600px] h-[600px] border bg-gray-400 relative'>
+    <div className='w-[500px] h-[500px] bg-amber-200 flex justify-center items-center'>
+       <div className="w-[100px] h-[100px] bg-blue-800 fixed left-[200px] top-[500px] " ></div>
+       <div className='w-[100px] h-[100px] bg-pink-500'></div>
+       <div className='w-[100px] h-[100px] bg-green-500  absolute right-[15px] bottom-[15px]'></div>
+       <div className='w-[100px] h-[100px] bg-amber-700'></div>
+       
 
-      <ProductCard  name="Phone" price="90,000.00" image="https://picsum.photos/id/3/200/300"/>
-
-      <ProductCard  name="Watch" price="7000.00" image="https://picsum.photos/id/1/200/300"/>
-     
+    </div>
+  </div>
+    
+  
     </>
   )
 }
