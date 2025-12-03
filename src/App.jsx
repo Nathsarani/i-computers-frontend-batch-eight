@@ -1,28 +1,39 @@
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import Test from './components/test'
 
+import HomePage from './pages/homePage'
+import LoginPage from './pages/loginPage'
+import RegisterPage from './pages/registerPage'
+import AdminPage from './pages/adminPage'
 
 function App() {
   
 
   return (
-    <>
-    
-  <div className='w-[600px] h-[600px] border bg-gray-400 relative'>
-    <div className='w-[500px] h-[500px] bg-amber-200 flex justify-center items-center'>
-       <div className="w-[100px] h-[100px] bg-blue-800 fixed left-[200px] top-[500px] " ></div>
-       <div className='w-[100px] h-[100px] bg-pink-500'></div>
-       <div className='w-[100px] h-[100px] bg-green-500  absolute right-[15px] bottom-[15px]'></div>
-       <div className='w-[100px] h-[100px] bg-amber-700'></div>
-       
 
-    </div>
-  </div>
+    <BrowserRouter>
 
+        <div className=' w-full h-[600px] border-2'      /*full screen  */> 
+                  <div  className='w-full h-screen bg-primary text-secondary'/*yata screen eka caha*/> 
+                      <Routes path="/">
+                          <Route path="/" element={<HomePage/>}/>
+                          <Route path="/login" element={<LoginPage/>}/>
+                          <Route path="/register" element={<RegisterPage/>}/>
+                          <Route path="/admin" element={<AdminPage/>}/>
+                          
+
+
+                      </Routes>
+
+                  </div>
+               </div>
+            </BrowserRouter>
+
+         
+          
   
-    
-  
-    </>
   )
 }
 
