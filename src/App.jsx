@@ -7,6 +7,7 @@ import HomePage from './pages/homePage'
 import LoginPage from './pages/loginPage'
 import RegisterPage from './pages/registerPage'
 import AdminPage from './pages/adminPage'
+import TestPage from './pages/test'
 
 function App() {
   
@@ -15,13 +16,15 @@ function App() {
 
     <BrowserRouter>
 
-        <div className=' w-full h-[600px] border-2'      /*full screen  */> 
-                  <div  className='w-full h-screen bg-primary text-secondary'/*yata screen eka caha*/> 
+        <div className=' w-full h-screen border-2'    /* hema page ekakama container  */> 
+                  <div  className='w-full h-screen bg-primary text-secondary'/*container eke redda eka wenas wenwa screen eka anuwa(dynamic kotuwak admin,re,vge page wetena*/> 
                       <Routes path="/">
+                          <Route path="/*" element={<HomePage/>}/>
                           <Route path="/" element={<HomePage/>}/>
                           <Route path="/login" element={<LoginPage/>}/>
                           <Route path="/register" element={<RegisterPage/>}/>
-                          <Route path="/admin" element={<AdminPage/>}/>
+                          <Route path="/admin/*" element={<AdminPage/>}/>
+                          <Route path="/test" element={<TestPage/>}/>
                           
 
 
