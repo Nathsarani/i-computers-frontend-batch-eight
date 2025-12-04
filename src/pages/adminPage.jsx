@@ -13,10 +13,10 @@ export default function adminPage(){
                     </div >
 
                     <div className="w-full h-[500px] flex flex-col  text-2xl ">
-                                <Link to ="/admin" className="w-full flex items-center h-[50px] gap-[20px]"><PiNotepadFill />Orders</Link>
-                                <Link to="/admin/products" className="w-full flex items-center h-[50px] gap-[20px]"><AiFillProduct />Products</Link>
-                                <Link to="/admin/users" className="w-full flex items-center h-[50px] gap-[20px]"><HiUsers />Users</Link>
-                                <Link to="/admin/reviews" className="w-full flex items-center h-[50px] gap-[20px]"><MdOutlineRateReview />Reviews</Link>
+                                <Link to ="/admin" className="w-full flex items-center h-[50px] gap-5"><PiNotepadFill />Orders</Link>
+                                <Link to="/admin/products" className="w-full flex items-center h-[50px] gap-5"><AiFillProduct />Products</Link>
+                                <Link to="/admin/users" className="w-full flex items-center h-[50px] gap-5"><HiUsers />Users</Link>
+                                <Link to="/admin/reviews" className="w-full flex items-center h-[50px] gap-5"><MdOutlineRateReview />Reviews</Link>
                     </div>
             </div>
                     <div className="w-[calc(100%-300px)] bg-primary h-full text-6xl border-4 rounded-4xl border-accent overflow-y-scroll"  >
