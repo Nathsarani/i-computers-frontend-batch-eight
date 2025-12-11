@@ -4,7 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 
-export default function loginPage() {
+export default function LoginPage() {
     const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
     const navigate = useNavigate()
@@ -18,17 +18,20 @@ export default function loginPage() {
         try{
 
         const res = await axios.post(import.meta.env.VITE_BACKEND_URL+ "/users/login",{ 
-            email : email, password : password 
+            email : email,
+             password : password 
         });
 
 
         console.log(res)
+        localStorage.setItem("token", res.data.token);
+
         if (res.data.role == "admin") { 
 				//window.location.href = "/admin";
                  navigate("/admin")
 		} else {
 				//window.location.href = "/";
-                 navigate("/admin")
+                 navigate("/")
 
 		}
 
@@ -38,12 +41,12 @@ export default function loginPage() {
         toast.success("Login successful! Welcome back.")
 
         
-        }catch(error){
+        }catch(err){
 
              //alert("Login failed! Please check your credentials and try again.");
             toast.error("Login failed! Please check your credentials and try again.");
             console.log("Error during login");
-            console.log("FInd error",error);
+            console.log("FInd error",err);
         }  
         
     }
@@ -77,7 +80,7 @@ export default function loginPage() {
                           
                     
                     <p className=" text-secondary  text-right  w-full mb-[20px] ">
-                        Forgot your password? <Link to="/forget-password" className="text-accent italic">
+                        Forget your password? <Link to="/forgot-password" className="text-accent italic">
                         Reset it here</Link></p>
                     
                     <button onClick={login} className="w-[350px] h-[50px]  border rounded-lg border-secondary  text-[20px] font-bold  text-white bg-accent hover:bg-transparent  hover:text-secondary">

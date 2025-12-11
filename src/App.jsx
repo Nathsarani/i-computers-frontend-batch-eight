@@ -21,10 +21,9 @@ function App() {
 
         <div className=' w-full h-screen border-2'    /* hema page ekakama container  */> 
                   <div  className='w-full h-screen bg-primary text-secondary'/*container eke redda eka wenas wenwa screen eka anuwa(dynamic kotuwak admin,re,vge page wetena*/> 
-                      <Routes>
+                      <Routes path="/">
             
                           <Route path="/*" element={<HomePage/>}/>
-                          <Route path="/" element={<HomePage/>}/>
                           <Route path="/login" element={<LoginPage/>}/>
                           <Route path="/register" element={<RegisterPage/>}/>
                           <Route path="/admin/*" element={<AdminPage/>}/>
