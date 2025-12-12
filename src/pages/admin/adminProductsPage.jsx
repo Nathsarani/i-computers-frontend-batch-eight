@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Loader from "../../components/loader";
+import ProductDeleteButton from "../../components/productDeleteButton";
 
 export default function AdminProductPage() {
     const [products, setProducts] = useState([]);
@@ -25,7 +26,7 @@ export default function AdminProductPage() {
     return (
         <div className="w-full min-h-screen px-10 py-14 bg-primary flex justify-center items-start relative">
 
-            {loaded ?<div className="w-full max-w-7xl bg-white/70 backdrop-blur-xl shadow-xl rounded-2xl p-8 border border-secondary/10">
+            {loaded ?<div className="w-full max-w-7xl bg-white/70 shadow-xl rounded-2xl p-8 border border-secondary/10">
 
                 <h1 className="text-3xl font-bold text-secondary mb-8">
                     Product Management
@@ -85,26 +86,7 @@ export default function AdminProductPage() {
                                             </span>
                                         </td>
                                         <td className="p-3 ">
-                                            <button onClick={
-                                                () => {
-                                                    const token = localStorage.getItem("token");
-                                                    axios.delete(import.meta.env.VITE_BACKEND_URL + "/products/" + item.productID, {
-                                                        headers: {
-                                                            Authorization: `Bearer ${token}`
-
-                                                        }
-                                                    }).then(
-                                                        () => {
-
-                                                            toast.success("Product deleted successfully")
-                                                            setLoaded(false);
-                                                        }
-                                                    )
-                                                }
-                                            } className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition cursor-p">
-                                                Delete
-                                            </button>
-
+                                            <ProductDeleteButton productId={item.productID} reload ={()=>{setLoaded(false)}}/>  {/*reload kiyla function ekk pass kra gnnwa productdelete ekt , props vithark newi pass kra gnn puluwn*/}
                                         </td>
                                     </tr>
                                 );
@@ -117,9 +99,14 @@ export default function AdminProductPage() {
 
             <Link
                 to="/admin/add-product"
+                // className="fixed right-[20px] bottom-[20px] w-[56px] h-[56px]
+                // flex justify-center items-center text-4xl rounded-full
+                //  bg-accent text-primary shadow-2xl ring-2 ring-accent/30
+                // hover:scale-105 hover:shadow
+                // active:scale-90 transition-all "
                 className="absolute right-10 bottom-10 w-[55px] h-[55px] flex justify-center items-center 
-                   rounded-full bg-accent text-white shadow-lg hover:scale-110
-                   transition-all duration-300"
+                rounded-full bg-accent text-white shadow-lg hover:scale-110
+                transition-all duration-300"
             >
                 <BiPlus size={28} />
             </Link>
