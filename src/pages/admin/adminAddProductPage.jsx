@@ -65,7 +65,7 @@ export default function AdminAddProductPage(){
 
 
     return(
-        <div className="w-full flex justify-center p-[50px]  overflow-y-scroll ">
+        <div className="w-full flex justify-center p-[50px] ">
             
             <div className="w-[800px] bg-accent/95 rounded-4xl p-[40px]">
 
