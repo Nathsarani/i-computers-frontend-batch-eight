@@ -19,7 +19,7 @@ function App() {
 
       <Toaster position='top-right'/>
 
-        <div className=' w-full h-screen border-2'    /* hema page ekakama container  */> 
+        {/* <div className=' w-full h-screen border-2'  >  /* hema page ekakama container   */}
                   <div  className='w-full h-screen bg-primary text-secondary'/*container eke redda eka wenas wenwa screen eka anuwa(dynamic kotuwak admin,re,vge page wetena*/> 
                       <Routes path="/">
             
@@ -34,7 +34,7 @@ function App() {
                       </Routes>
 
                   </div>
-               </div>
+               {/* </div> */}
             </BrowserRouter>
 
          

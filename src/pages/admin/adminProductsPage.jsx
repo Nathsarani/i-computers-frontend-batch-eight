@@ -1,14 +1,16 @@
 import { BiPlus } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Loader from "../../components/loader";
 import ProductDeleteButton from "../../components/productDeleteButton";
 
+
 export default function AdminProductPage() {
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!loaded) {  //backend data notload
@@ -34,8 +36,9 @@ export default function AdminProductPage() {
 
                 <div className="overflow-x-auto rounded-xl shadow-lg border border-secondary/10">
                     <table className="w-full text-left border-collapse">
-                        <thead className="bg-secondary text-white">
+                        <thead className="bg-secondary text-white ">
                             <tr>
+                               
                                 <th className="p-4">Image</th>
                                 <th className="p-4">Product ID</th>
                                 <th className="p-4">Name</th>
@@ -47,14 +50,15 @@ export default function AdminProductPage() {
                                 <th className="p-4">Stock</th>
                                 <th className="p-4">Availability</th>
                                 <th className="p-4">Action</th>
+                               
                             </tr>
                         </thead>
 
                         <tbody className="divide-y divide-secondary/10">
-                            {products.map((item) => {
+                            {products.map((item,index) => {
                                 return (
                                     <tr
-                                        key={item.productID}
+                                        key={index}
                                         className="hover:bg-primary/60 transition-all"
                                     >
                                         <td className="p-3">
@@ -76,17 +80,28 @@ export default function AdminProductPage() {
                                         <td className="p-3">{item.stock}</td>
 
                                         <td className="p-3">
-                                            <span
-                                                className={`px-3 py-1 rounded-full text-sm font-semibold ${item.isAvailable
-                                                        ? "bg-green-200 text-green-800"
-                                                        : "bg-red-200 text-red-800"
-                                                    }`}
-                                            >
-                                                {item.isAvailable ? "Available" : "Out of Stock"}
-                                            </span>
+                                           {item.isAvailable ? "Available" : "Unavailable"}
                                         </td>
-                                        <td className="p-3 ">
-                                            <ProductDeleteButton productId={item.productID} reload ={()=>{setLoaded(false)}}/>  {/*reload kiyla function ekk pass kra gnnwa productdelete ekt , props vithark newi pass kra gnn puluwn*/}
+                                        <td className="p-3">
+                                            <div className="inline-flex items-center gap-2 ">
+
+                                                {/* <Link
+                                                to="/admin/update-product"
+                                                className="px-3 py-1 rounded-md w-[70px] text-center  bg-accent/20 text-accent"
+                                                state={item}>
+                                                Edit</Link>
+                                                 */}
+
+                                                <button
+                                                    onClick={() => {
+                                                        navigate("/admin/update-product", { state: item });
+                                                    }}
+                                                    className="px-3 py-1 rounded-md w-[70px] text-center bg-accent/20 text-accent hover:bg-accent/30 transition"
+                                                >
+                                                    Edit
+                                                </button>
+                                                <ProductDeleteButton productId={item.productID} reload={() => { setLoaded(false) }} />  {/*reload kiyla function ekk pass kra gnnwa productdelete ekt , props vithark newi pass kra gnn puluwn*/}
+                                            </div>
                                         </td>
                                     </tr>
                                 );
