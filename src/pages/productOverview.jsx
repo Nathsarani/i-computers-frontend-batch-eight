@@ -9,7 +9,7 @@ import { addToCart } from "../utils/cart";
 
 
 export default function ProductOverview(){
-    
+
     const navigate = useNavigate();
     const params =useParams();              //get id (pass params) of url
     //  console.log(params.productID);   an see JSON
@@ -84,7 +84,7 @@ export default function ProductOverview(){
                             <button 
                             onClick={()=>{
                                 navigate("/checkout", { state: [{
-                                    productId: product.productID,
+                                    productID: product.productID,
                                     name: product.name,
                                     price: product.price,
                                     labelledPrice: product.labelledPrice,
