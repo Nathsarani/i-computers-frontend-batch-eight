@@ -38,19 +38,19 @@ export default function AdminProductPage() {
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-secondary text-white ">
                             <tr>
-                               
-                                <th className="p-4">Image</th>
-                                <th className="p-4">Product ID</th>
-                                <th className="p-4">Name</th>
-                                <th className="p-4">Price</th>
-                                <th className="p-4">Labelled Price</th>
-                                <th className="p-4">Category</th>
-                                <th className="p-4">Brand</th>
-                                <th className="p-4">Model</th>
-                                <th className="p-4">Stock</th>
-                                <th className="p-4">Availability</th>
-                                <th className="p-4">Action</th>
-                               
+
+                                <th className="p-4 uppercase">Image</th>
+                                <th className="p-4 uppercase">Product ID</th>
+                                <th className="p-4 uppercase">Name</th>
+                                <th className="p-4 uppercase">Price</th>
+                                <th className="p-4 uppercase">Labelled Price</th>
+                                <th className="p-4 uppercase">Category</th>
+                                <th className="p-4 uppercase">Brand</th>
+                                <th className="p-4 uppercase">Model</th>
+                                <th className="p-4 uppercase">Stock</th>
+                                <th className="p-4 uppercase">Availability</th>
+                                <th className="p-4 uppercase">Action</th>
+
                             </tr>
                         </thead>
 

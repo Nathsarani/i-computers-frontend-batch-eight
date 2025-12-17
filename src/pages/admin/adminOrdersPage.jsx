@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../../components/loader";
+import ViewOrderInfo from "../../components/viewOrderInfo";
+
 
 export default function AdminOrdersPage() {
     const [orders, setOrders] = useState([]);
@@ -32,13 +34,13 @@ export default function AdminOrdersPage() {
                         <table className="w-full text-left border-collapse">
                             <thead className="bg-secondary text-white">
                                 <tr>
-                                    <th className="p-4">Order ID</th>
-                                    <th className="p-4">Customer Email</th>
-                                    <th className="p-4">Customer Name</th>
-                                    <th className="p-4">Date</th>
-                                    <th className="p-4">Status</th>
-                                    <th className="p-4">Total Amount</th>
-                                    <th className="p-4">Actions</th>
+                                    <th className="p-4 uppercase">Order ID</th>
+                                    <th className="p-4 uppercase">Customer Email</th>
+                                    <th className="p-4 uppercase">Customer Name</th>
+                                    <th className="p-4 uppercase">Date</th>
+                                    <th className="p-4 uppercase">Status</th>
+                                    <th className="p-4 uppercase">Total Amount</th>
+                                    <th className="p-4 uppercase">Actions</th>
                                 </tr>
                             </thead>
 
@@ -61,7 +63,7 @@ export default function AdminOrdersPage() {
                                             LKR. {order.total.toFixed(2)}
                                         </td>
                                         <td className="p-3">
-                                            {/* Future action buttons can go here */}
+                                            <ViewOrderInfo order={order} />
                                         </td>
                                     </tr>
                                 ))}

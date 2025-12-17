@@ -120,7 +120,7 @@ export default function CheckoutPage() {
 					</div>
 				);
 			})}
-			<div className="w-[50%] p-4  rounded-xl overflow-hidden shadow-2xl my-1 flex flex-wrap justify-between items-center">
+			<div className="w-[50%] p-4 rounded-xl overflow-hidden shadow-2xl my-1 flex flex-wrap  items-center justify-between">
 				<div className="flex flex-col  w-[50%]">
 					<label>Name</label>
 					<input

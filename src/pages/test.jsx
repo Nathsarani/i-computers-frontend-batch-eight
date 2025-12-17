@@ -1,6 +1,6 @@
 export default function TestPage(){
     return(
-        <h1>Test Page</h1>
+       <div className="full h-full bg-blue-950 lg:bg-green-950"></div>
 
         
 
