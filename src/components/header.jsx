@@ -2,6 +2,7 @@ import { BiShoppingBag } from "react-icons/bi"
 import { LuListCollapse } from "react-icons/lu";
 import { Link } from "react-router-dom"
 import { useState } from "react";
+import UserData from "./userData";
 
 export default function Header() {
     const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -15,6 +16,10 @@ export default function Header() {
                 <Link to="/about">About</Link>
                 <Link to="/contact">Contact</Link>
 
+            </div>
+
+            <div className="absolute right-24 top-0 h-full  items-center hidden lg:flex">
+                <UserData/>
             </div>
 
             <Link to="/cart" className="absolute right-4 top-1/2 -translate-y-1/2 text-primary text-2xl">
@@ -56,6 +61,8 @@ export default function Header() {
                                 >
                                     About
                                 </a>
+
+                            <div className=" flex justify-center  bg-accent p-2 rounded-full"><UserData/></div>
                             </div>
 
                         </div>
