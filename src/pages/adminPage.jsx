@@ -7,10 +7,14 @@ import AdminProductPage from "./admin/adminProductsPage";
 import AdminAddProductPage from "./admin/adminAddProductPage";
 import AdminUpdateProductPage from "./admin/adminUpdateProductPage";
 import AdminOrdersPage from "./admin/adminOrdersPage";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../components/loader";
+import axios from "axios";
+import AdminUsersPage from "./admin/adminUserPage";
+
 
 export default function adminPage() {
+      const [user, setUser] = useState(null);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -57,7 +61,7 @@ export default function adminPage() {
                             <Route path="/products" element={<AdminProductPage />} />
                             <Route path="/add-product" element={<AdminAddProductPage />} />
                             <Route path="/update-product" element={<AdminUpdateProductPage />} />
-                            <Route path="/users" element={<h1>users</h1>} />
+                            <Route path="/users" element={<AdminUsersPage />} />
                             <Route path="/reviews" element={<h1>reveiws</h1>} />
                             <Route path="/*" element={<h1>Not Found</h1>} />
 
@@ -65,9 +69,9 @@ export default function adminPage() {
                     </div>
                 </>
                 :
-                <Loader/>
-                
-}
+                <Loader />
+
+            }
 
         </div>
 

@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Loader from "../../components/loader";
-import ViewOrderInfo from "../../components/viewOrderInfo";
 
-export default function AdminOrdersPage() {
+
+import Loader from "../components/loader";
+import ViewOrderInfoCustomer from "../components/veiwOrderInfoCustomer";
+
+export default function OrdersPage() {
     const [orders, setOrders] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
@@ -20,7 +22,6 @@ export default function AdminOrdersPage() {
                 });
         }
     }, [loaded]);
-    
 
     return (
         <div
@@ -29,11 +30,7 @@ export default function AdminOrdersPage() {
         >
             {loaded ? (
                 <div className="w-full max-w-7xl overflow-x-auto rounded-2xl shadow-xl bg-white/70 border border-secondary/10">
-                    <h1 className="text-3xl font-bold text-secondary m-5">
-                        Orders Management
-                    </h1>
-
-                    <table className="w-full table-auto border-separate border-spacing-0">
+                    <table className="w-full table-auto border-separate border-spacing-0 rounded-2xl overflow-hidden">
                         <thead className="sticky top-0 bg-secondary text-primary/95">
                             <tr>
                                 <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
@@ -59,12 +56,15 @@ export default function AdminOrdersPage() {
                                 </th>
                             </tr>
                         </thead>
-
                         <tbody className="divide-y divide-secondary/10">
                             {orders.map((order, index) => (
                                 <tr
                                     key={index}
-                                    className="odd:bg-primary/60 even:bg-white hover:bg-primary/90 transition-colors"
+                                    className={`transition-colors ${
+                                        index % 2 === 0
+                                            ? "bg-white"
+                                            : "bg-primary/60"
+                                    } hover:bg-primary/90`}
                                 >
                                     <td className="px-4 py-3 text-sm font-medium text-secondary/90">
                                         {order.orderId}
@@ -85,7 +85,7 @@ export default function AdminOrdersPage() {
                                         LKR. {order.total.toFixed(2)}
                                     </td>
                                     <td className="px-4 py-3 text-sm font-medium text-secondary/90">
-                                        <ViewOrderInfo order={order} />
+                                        <ViewOrderInfoCustomer order={order} />
                                     </td>
                                 </tr>
                             ))}
